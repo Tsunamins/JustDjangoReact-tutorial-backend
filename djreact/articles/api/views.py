@@ -39,6 +39,7 @@ class ArticleDeleteView(DestroyAPIView):
     permission_classes = (permissions.IsAuthenticated, )
 
 #previous version when auths not needed:
+#shorter viewsets will also show a create/update/and delete view available in /api
 
 # from rest_framework import viewsets
 
