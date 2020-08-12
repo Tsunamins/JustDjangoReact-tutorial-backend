@@ -1,11 +1,13 @@
 #change method for basic, unauthed get, put, patch, destroy requests
 #uses less lines of code, keeping the other version for use when auths get involved in tutorial
+#methods below, instead, to use all views in one
+from rest_framework import viewsets
+
 #this part stays thes same
 from articles.models import Article
 from .serializers import ArticleSerializer
 
-#methods below, instead, to use all views in one
-from rest_framework import viewsets
+
 
 class ArticleViewSet(viewsets.ModelViewSet):
         queryset = Article.objects.all()
