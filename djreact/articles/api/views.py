@@ -9,6 +9,7 @@ from rest_framework.generics import (
 from articles.models import Article
 from .serializers import ArticleSerializer
 
+
 class ArticleListView(ListAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer

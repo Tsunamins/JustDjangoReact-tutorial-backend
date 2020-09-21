@@ -1,6 +1,6 @@
 {
-    "python.pythonPath": "/home/alison/.local/share/virtualenvs/dr-backend-4_sp-EPo/bin/python",
+    "python.pythonPath": "/home/alison/.local/share/virtualenvs/dr-backend-hW_49WVM/bin/python",
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.flake8Enabled": false
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
 }
