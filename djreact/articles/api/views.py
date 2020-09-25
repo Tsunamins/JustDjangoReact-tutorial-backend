@@ -6,6 +6,11 @@ from rest_framework.generics import (
     DestroyAPIView,
     UpdateAPIView
 )
+
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from articles.models import Article
 from .serializers import ArticleSerializer
 
@@ -25,31 +30,29 @@ class ArticleDetailView(RetrieveAPIView):
 class ArticleCreateView(CreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    #permission_classes = (permissions.IsAuthenticated, )
+    # permission_classes = (permissions.IsAuthenticated, )
     permission_classes = (permissions.AllowAny, )
 
 
 class ArticleUpdateView(UpdateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    #permission_classes = (permissions.IsAuthenticated, )
+    # permission_classes = (permissions.IsAuthenticated, )
     permission_classes = (permissions.AllowAny, )
 
 
 class ArticleDeleteView(DestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    #permission_classes = (permissions.IsAuthenticated, )
+    # permission_classes = (permissions.IsAuthenticated, )
     permission_classes = (permissions.AllowAny, )
 
-#previous version when auths not needed:
-#shorter viewsets will also show a create/update/and delete view available in /api
 
-# from rest_framework import viewsets
+@api_view()
+def null_view(request):
+    return Response(status=status.HTTP_400_BAD_REQUEST)
 
-# from articles.models import Article
-# from .serializers import ArticleSerializer
 
-# class ArticleViewSet(viewsets.ModelViewSet):
-#     serializer_class = ArticleSerializer
-#     queryset = Article.objects.all()
+@api_view()
+def complete_view(request):
+    return Response("Email account is activated")
