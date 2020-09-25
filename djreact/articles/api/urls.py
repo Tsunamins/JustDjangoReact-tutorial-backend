@@ -19,7 +19,6 @@ urlpatterns = [
     path('<pk>/update/', ArticleUpdateView.as_view()),
     path('<pk>/delete/', ArticleDeleteView.as_view()),
 
-
     path('registration/account-email-verification-sent/', views.null_view, name='account_email_verification_sent'),
     path('registration/account-confirm-email/(?P<key>[-:\w]+)/$', ConfirmEmailView.as_view(), name='account_confirm_email'),
     path('registration/complete/$', views.complete_view, name='account_confirm_complete'),

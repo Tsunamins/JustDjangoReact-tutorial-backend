@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-#added for email reg setup
+# added for email reg setup
 # import emailsignup.urls
 
 urlpatterns = [
