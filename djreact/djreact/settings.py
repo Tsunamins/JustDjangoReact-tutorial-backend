@@ -33,15 +33,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+   
+    
+    # 'rest_auth',
+    # 'rest_auth.registration',
+
     'rest_framework',
-    'corsheaders',
-    'rest_auth',
-    'rest_auth.registration',
     'rest_framework.authtoken',
+
+    'corsheaders',
+    'djoser',
     'articles',
 ]
 
@@ -61,11 +66,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'djreact.urls'
 
-TEMPLATES_ROOT = os.path.join(BASE_DIR, "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_ROOT],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,23 +137,14 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
-
-# some additional settings, from allauth in particular
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = reverse_lazy('account_confirm_complete')
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = reverse_lazy('account_confirm_complete')
-
 
 EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_HOST_USER = 'reillyamr@gmail.com'
