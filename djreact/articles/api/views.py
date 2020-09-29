@@ -7,10 +7,6 @@ from rest_framework.generics import (
     UpdateAPIView
 )
 
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-
 from articles.models import Article
 from .serializers import ArticleSerializer
 
@@ -46,13 +42,3 @@ class ArticleDeleteView(DestroyAPIView):
     serializer_class = ArticleSerializer
     # permission_classes = (permissions.IsAuthenticated, )
     permission_classes = (permissions.AllowAny, )
-
-
-@api_view()
-def null_view(request):
-    return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view()
-def complete_view(request):
-    return Response("Email account is activated")
