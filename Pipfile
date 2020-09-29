@@ -12,6 +12,8 @@ django-cors-headers = "*"
 django-rest-auth = "*"
 django-allauth = "*"
 python-dotenv = "*"
+djangorestframework-simplejwt = "*"
+djoser = "*"
 
 [requires]
 python_version = "3.8"
