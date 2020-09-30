@@ -10,6 +10,7 @@ from .views import (
     ArticleCreateView,
     ArticleUpdateView,
     ArticleDeleteView,
+    CreateUserView
    
 )
 
@@ -23,6 +24,7 @@ urlpatterns = [
     path('registration/account-confirm-email/(?P<key>[-:\w]+)/$', ConfirmEmailView.as_view(), name='account_confirm_email'),
     path('registration/complete/$', views.complete_view, name='account_confirm_complete'),
     path('password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.null_view, name='password_reset_confirm'),
+    path('create-user/', CreateUserView.as_view(), name='create-user')
 ]
 
 # Previous short version for when auths aren't needed:
