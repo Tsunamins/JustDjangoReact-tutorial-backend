@@ -139,12 +139,34 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT',),
+}
+
+DJOSER = {
+   'USER_CREATE_PASSWORD_RETYPE': True,
+   'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+   'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+   'SEND_CONFIRMATION_EMAIL': True,
+   'SET_USERNAME_RETYPE': True,
+   'SET_PASSWORD_RETYPE': True,
+   'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid},{token}',
+   'USERNAME_RESET_CONFIRM_URL': 'username/reset/confirm/{uid},{token}',
+   'ACTIVATION_URL': 'activate/{uid}/{token}',
+   'SEND_ACTIVATION_EMAIL': True,
+   'SERIALIZERS': {
+
+   }
+}
 
 EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_HOST_USER = 'reillyamr@gmail.com'
