@@ -4,6 +4,7 @@ from articles.models import Article
 
 from django.contrib.auth.models import User
 
+
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
