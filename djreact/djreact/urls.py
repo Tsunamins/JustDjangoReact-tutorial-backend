@@ -7,10 +7,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('non-admin/', include('rest_framework.urls')),
+    # path('non-admin/', include('rest_framework.urls')),
 
     path('auth/', include('djoser.urls')),
-
-    path('api/', include('articles.api.urls')), 
+    path('auth/', include('djoser.urls.jwt')),
+    path('api/', include('articles.api.urls')),
 
 ]
