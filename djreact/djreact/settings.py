@@ -143,6 +143,10 @@ REST_FRAMEWORK = {
 
 }
 
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'articles.api.serializers.UserSerializer',
+}
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'articles.CustomUser'
