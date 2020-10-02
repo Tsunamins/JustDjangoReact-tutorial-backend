@@ -1,8 +1,7 @@
 from rest_framework import serializers
 
-from articles.models import Article
+from articles.models import Article, CustomUser
 
-from django.contrib.auth.models import User
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,6 +10,8 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = User
-        fields = ('id', 'username', 'email')
+        model = CustomUser
+        fields = ['id', 'email', 'first_name', 'last_name', 'spouse_name', 'date_of_birth']
+
